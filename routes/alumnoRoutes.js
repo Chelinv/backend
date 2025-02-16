@@ -1,10 +1,16 @@
 const express = require('express');
-const { agregarAlumno, obtenerAlumnos, obtenerEstadisticas } = require('../controllers/alumnoController');
+const {
+  agregarAlumno,
+  obtenerAlumnos,
+  obtenerEstadisticas,
+  agregarDatosQuemados
+} = require('../controllers/alumnoController');
 
 const router = express.Router();
 
-router.post('/', agregarAlumno);
-router.get('/', obtenerAlumnos);
-router.get('/estadisticas', obtenerEstadisticas);
+router.post('/', agregarAlumno); // Agregar alumno
+router.get('/', obtenerAlumnos); // Listar alumnos
+router.get('/estadisticas', obtenerEstadisticas); // Obtener estadísticas
+router.post('/insertar-datos', agregarDatosQuemados); // Insertar datos quemados
 
 module.exports = router;
